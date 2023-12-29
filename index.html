@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- ===== fontAwesome cdn ===== -->
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      />
+      <!-- ===== Style.css ===== -->
+      <link rel="stylesheet" href="style.css" />
+      <title>Tic-Tac-Toe</title>
+   </head>
+   <body>
+      <div class="container">
+         <section>
+            <div class="start-page startHide">
+               <div class="content">
+                  <h1>Tic-Tac-Toe</h1>
+                  <h2>Choose Your Turn !</h2>
+                  <div class="turns">
+                     <button class="turn-btn btn-x active" data-id="x">
+                        x
+                     </button>
+                     <button class="turn-btn btn-o" data-id="o">o</button>
+                  </div>
+                  <button class="start-btn">
+                     start
+                     <span><i class="fa-solid fa-chevron-right"></i></span>
+                  </button>
+               </div>
+            </div>
+         </section>
+         <main class="hide" id="main">
+            <section class="game-container">
+               <div class="turns-section">
+                  <div class="turns static-turn">
+                     <div class="turn-x" id="turn-x" data-id="x">X</div>
+                     <div class="turn-o" id="turn-o" data-id="o">O</div>
+                  </div>
+                  <div class="dynamic-turn">
+                     <p data-id="x"><span id="dynamic">x</span> turn</p>
+                  </div>
+                  <div class="reset-btn">
+                     <i class="fa-solid fa-rotate-right" id="stop"></i>
+                  </div>
+               </div>
+
+               <div class="game-box">
+                  <button class="box turn-x" data-id="0"></button>
+                  <button class="box turn-o" data-id="1"></button>
+                  <button class="box turn-x" data-id="2"></button>
+                  <button class="box turn-o" data-id="3"></button>
+                  <button class="box turn-x" data-id="4"></button>
+                  <button class="box turn-o" data-id="5"></button>
+                  <button class="box turn-x" data-id="6"></button>
+                  <button class="box turn-o" data-id="7"></button>
+                  <button class="box turn-x" data-id="8"></button>
+               </div>
+
+               <div class="score-section">
+                  <div class="x-points">
+                     <p class="element"><span>x</span> (pt)</p>
+                     <p class="score-x">0</p>
+                  </div>
+                  <div class="draw">
+                     <p class="element"><span class="winner"></span> won</p>
+                  </div>
+                  <div class="o-points">
+                     <p class="element"><span>o</span> (pt)</p>
+                     <p class="score-o">0</p>
+                  </div>
+               </div>
+            </section>
+         </main>
+      </div>
+      <script src="app.js"></script>
+   </body>
+</html>

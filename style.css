@@ -1,0 +1,318 @@
+@import url("https://fonts.googleapis.com/css2?family=Merienda&family=Poppins&display=swap");
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+:root {
+   --danger: #dc4c64;
+   --black: #222831;
+   --grey: #393e46;
+   --aqua: #00adb5;
+   --white: #eeeeee;
+   --poppins: "Poppins", sans-serif;
+   --merienda: "Merienda", cursive;
+   --text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.23);
+}
+
+/* ===== General styles ===== */
+
+h1 {
+   font-family: var(--merienda);
+   font-size: 1.6rem;
+   letter-spacing: 1.2px;
+   color: var(--aqua);
+   text-shadow: var(--text-shadow);
+   font-weight: 400;
+}
+h2 {
+   font-family: var(--poppins);
+   font-size: 1.5rem;
+   letter-spacing: 1.3px;
+   color: rgba(238, 238, 238, 0.7);
+   text-shadow: var(--text-shadow);
+}
+
+body {
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: linear-gradient(to right, #eecda3, #ef629f);
+   position: relative;
+}
+section {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+.start-page {
+   position: relative;
+   background-color: var(--black);
+   width: 350px;
+   max-height: 250px;
+   padding: 0.5rem;
+   border-radius: 1.5vmin;
+   overflow: hidden;
+}
+.start-page::before {
+   content: "";
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   border-top: 0;
+   border-right: 0;
+   border-left: 0;
+   border-width: 1.5px;
+   border-style: solid;
+   border-image: linear-gradient(90deg, #00adb5, #222831) 1;
+}
+.start-page::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   border-width: 2px;
+   border-bottom: 0;
+   border-left: 0;
+   border-right: 0;
+   border-style: solid;
+   border-image: linear-gradient(90deg, #222831, #00adb5) 1;
+}
+.start-page .content {
+   margin: 2vmin;
+   text-align: center;
+   color: var(--white);
+}
+.content {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.content .turns {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100px;
+   height: 25px;
+   position: relative;
+   margin-top: 0.5rem;
+   background-color: var(--aqua);
+   overflow: hidden;
+   color: var(--black);
+   position: relative;
+   border: 0.5px solid rgba(238, 238, 238, 0.5);
+}
+.turn-btn {
+   font-weight: 400;
+   font-size: 1rem;
+   width: 50%;
+   height: 100%;
+   border: none;
+   text-align: center;
+   outline: none;
+   background-color: transparent;
+   font-family: var(--merienda);
+   cursor: pointer;
+   text-shadow: var(--text-shadow);
+   text-transform: lowercase;
+}
+.active {
+   background-color: var(--black);
+   color: var(--aqua);
+   z-index: 10;
+}
+.start-page .start-btn {
+   position: relative;
+   margin-top: 1.4rem;
+   width: 130px;
+   padding: 0.5rem 0;
+   font-family: var(--poppins);
+   font-weight: bold;
+   text-shadow: var(--text-shadow);
+   border-radius: 0.2rem;
+   font-size: 1.1rem;
+   color: var(--white);
+   background-color: var(--grey);
+   border: none;
+   outline: none;
+   text-transform: capitalize;
+   letter-spacing: 1.2px;
+   cursor: pointer;
+   overflow: hidden;
+}
+.start-page .start-btn:hover {
+   background-color: rgba(0, 173, 181, 0.9);
+   transition: all 0.4s linear;
+}
+
+.hide {
+   display: none;
+   transition: all 0.2s ease-in-out;
+}
+
+/* ===== Game Container ===== */
+
+.game-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 350px;
+   background-color: var(--black);
+   border-radius: 1rem;
+}
+.turns-section {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 1rem;
+   margin-top: 2rem;
+   margin-bottom: 0.5rem;
+}
+
+.static-turn {
+   width: 60px;
+   background-color: var(--grey);
+   height: 100%;
+   border: 0.5px solid var(--aqua);
+   color: var(--white);
+}
+.static-turn .turn-x {
+   width: 30px;
+   height: 100%;
+   text-align: center;
+}
+.turn-x {
+   background-color: var(--aqua);
+}
+.static-turn .turn-o {
+   width: 30px;
+   height: 100%;
+   text-align: center;
+}
+
+.static-turn,
+.dynamic-turn,
+.reset-btn {
+   width: 60px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 1rem;
+}
+.static-turn {
+   gap: 0rem;
+   justify-content: space-between;
+}
+
+.static-turn .turn-x,
+.static-turn .turn-o {
+   font-size: 1.1rem;
+   font-family: var(--merienda);
+}
+.dynamic-turn p {
+   font-size: 1rem;
+   font-family: var(--poppins);
+   color: var(--white);
+   text-shadow: var(--text-shadow);
+   letter-spacing: 1.2px;
+}
+.dynamic-turn p span {
+   font-family: var(--merienda);
+   font-weight: 400;
+   font-size: 1.4rem;
+}
+.reset-btn {
+   text-shadow: var(--text-shadow);
+   align-self: flex-end;
+   margin-bottom: 0.2rem;
+   color: var(--danger);
+}
+.game-box {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 1rem;
+   margin-bottom: 1rem;
+   margin-top: 1rem;
+}
+.game-box .box {
+   width: 60px;
+   height: 60px;
+   border: 0.1px solid rgba(238, 238, 238, 0.43);
+   border-radius: 0.5rem;
+   display: grid;
+   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+   place-items: center;
+   font-family: var(--merienda);
+   color: var(--white);
+   outline: none;
+   background-color: transparent;
+   font-size: 1.4rem;
+   cursor: pointer;
+}
+
+/* ===== Score-Section ===== */
+.score-section {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 1rem;
+   margin-top: 1rem;
+   margin-bottom: 0.5rem;
+   color: var(--white);
+   text-align: center;
+}
+.x-points,
+.o-points,
+.draw {
+   width: 60px;
+   text-align: center;
+}
+.x-points .element,
+.o-points .element,
+.draw .element {
+   font-family: var(--poppins);
+   letter-spacing: 1.3px;
+   font-size: 1.1rem;
+}
+.x-points .element span,
+.o-points .element span {
+   font-family: var(--merienda);
+   font-size: 1.3rem;
+   font-weight: 400;
+   text-shadow: var(--text-shadow);
+}
+.x-points .element span {
+   color: var(--aqua);
+}
+.o-points .element span {
+   color: var(--white);
+}
+
+.x-points .score,
+.o-points .score,
+.draw .score {
+   font-size: 1rem;
+   font-family: var(--poppins);
+   font-weight: 400;
+}
+.draw .winner {
+   font-family: var(--merienda);
+   font-size: 1.1rem;
+   font-weight: 400;
+}
+.reset-btn {
+   cursor: pointer;
+}
+.score-x,
+.score-o {
+   margin-top: 0.5rem;
+   font-size: 1rem;
+   font-family: var(--merienda);
+   font-weight: 400;
+}
